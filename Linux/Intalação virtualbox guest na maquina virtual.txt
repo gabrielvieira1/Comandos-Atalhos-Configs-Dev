@@ -1,0 +1,7 @@
+Intalação virtualbox guest na maquina virtual
+
+inserir disco
+sudo su
+cp VBoxLinuxAdditions.run /tmp/
+./tmp/VBoxLinuxAdditions.run
+sudo reboot

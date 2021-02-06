@@ -1,0 +1,17 @@
+Instalar node e yarn e npm
+
+sudo apt-get install nodejs npm
+
+sudo npm install yarn -g
+
+editar variaveis de ambiente no .bashrc
+
+# node yarn
+alias node=nodejs
+export PATH=$PATH:/usr/bin/yarn
+
+executar no terminal variaveis globais:
+
+export PATH=$PATH:`yarn global bin`
+
+yarn --version

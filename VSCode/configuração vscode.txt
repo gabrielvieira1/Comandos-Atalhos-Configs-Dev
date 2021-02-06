@@ -1,0 +1,4 @@
+CONFIGURAÇÃO VSCODE
+sudo apt install fonts-firacode.
+Fonte - FiraCode. Download pelo github (executar e instalar uma a uma da pasta ttf)
+Baixar extensão settings Sync

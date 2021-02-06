@@ -1,0 +1,23 @@
+configurar SERVER DHCP E REMOTE ACESSO NO WINDOWS SERVER
+
+Configurar rede interna2
+192.168.20.1
+255.255.255.0
+
+instalar serviço de DHCP
+criar escopo em ferramentas > DHCP:
+Endereço IP inicial 192.168.20.100
+Endereço IP inicial 192.168.20.254
+comprimento 24
+Mascara 255.255.255.0
+duração de concessão 1 dia
+DNS 8.8.8.8
+roteador 192.168.20.1
+
+instalar Remote acesso
+configurar roteamento
+NAT 2 opção
+rede DHCP
+finish
+
+

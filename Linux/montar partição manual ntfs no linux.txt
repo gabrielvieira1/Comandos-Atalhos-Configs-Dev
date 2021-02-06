@@ -1,0 +1,32 @@
+As partições do tipo NTFS são nativas dos sistemas operacionais feitos pela Microsoft. Em algumas distribuições Linux não se faz a montagem/reconhecimento desse tipo de partição logo após instalação deste e/ou HD.
+
+Para isso precisamos de algum programa com suporte à plataforma Linux para podermos acessar os arquivos através de nosso pinguim. Os programas mais utilizados são o ntfs-3g e o fuse.
+
+Nessa dica abordarei o ntfs-3g, que é o mesmo que eu uso no meu Debian.
+
+1) vamos começar com atualização do sistema e logo em seguida com a instalação do ntfs-3g. Isso em uma linha de comando apenas:
+
+# apt-get update && apt-get install ntfs-3g
+
+2) depois de instalar o ntfs-3g, digite:
+
+# fdisk -l
+
+3) esse comando vai mostrar o nome das partições e o tipo de cada uma, veja o nome da partição ntfs desejada, ex:
+
+/dev/hdc5       1403        9728    66878563+   7  HPFS ou NTFS
+
+4) você deve copiar a parte /dev/hdc5. Depois "ctrl+c" e "ctrl+l" e faça:
+
+# mkdir /mnt/Arquivos (o nome "Arquivos" é opcional, mude se quiser)
+# gedit /etc/fstab
+
+5) adicione a linha abaixo no fim do arquivo:
+
+/dev/hdc5 /mnt/Arquivos ntfs-3g silent,umask=0,nls=iso8859-1 0 0
+
+O "/dev/hdc5" deve ser substituído pelo nome da partição ntfs desejada, assim como o /mnt/Arquivos, caso tenha mudado o nome da hora de criá-la. Depois de editá-lo, salve e feche o arquivo. Digite no terminal:
+
+# mount -a
+
+Fim! 

@@ -1,0 +1,95 @@
+Como rodar ruby on rails
+
+Intalar nodejs e  npm
+sudo apt-get install curl
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+sudo apt-get install -y nodejs
+node -v
+npm -v
+
+instalar yarn
+
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+yarn -v
+
+
+intalar ruby com rbenv
+
+sudo apt-get update
+
+dependencias 
+
+$ sudo apt-get install -y build-essential autoconf bison libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm-dev
+
+git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+
+Você também vai precisar do ruby-build, que simplifica o modo como o Ruby é instalado
+git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+
+Você vai precisar adicionar o rbenv ao $PATH. Para isso execute o comando à seguir:
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+
+echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+
+Reinicie o seu terminal para carregar estas novas configurações, ou execute o comando source ~/.bashrc.
+
+Se tudo deu certo, você já pode instalar quantas versões do Ruby você quiser. Para saber quais versões estão disponíveis, execute o comando rbenv install -l.
+
+Para instalar a última versão disponível neste momento, exeute o comando rbenv install 2.2.2. Este processo irá demorar um pouco, já que o rbenv irá compilar o Ruby.
+
+Quando a instalação acabar, execute o comando rbenv global 2.2.2 para definir a versão global do Ruby como sendo 2.2.2. Assim, você sempre terá uma instalação disponível, o que pode ser muito útil para experimentações no irb, por exemplo.
+
+Para exibir a versão do Ruby, execute o comando ruby -v.
+
+Plugins
+
+O rbenv possui suporte para plugins. Um deles é particularmente interessante; trata-se de rbenv-gem-rehash, que faz rehashing automaticamente sempre que uma gem for instalada ou removida.
+
+Rehashing é o processo de atualizar o $PATH com os binários das gems. O comando rbenv init faz isso para você, mas ele é apenas executado quando uma nova sessão do terminal é iniciada; assim, qualquer gem instalada após esta etapa pode não funcionar corretamente, a menos que você execute manualmente o comando rbenv rehash.
+
+Para instalar este plugin, execute o comando à seguir:
+
+$ git clone https://github.com/sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash
+
+Instalando o PostgreSQL
+
+sudo apt-get install postgresql postgresql-contrib libpq-dev
+
+Criando usuario
+
+sudo -u postgres createuser -rds gabriel
+
+Depois, crie um banco de dados com o mesmo nome de seu usuário.
+
+createdb $USER
+
+psql
+
+Instalando o Ruby on Rails
+
+
+gem install rails
+
+gem list
+
+Criando uma aplicação Rails
+
+rails new myapp -d postgresql
+
+rails db:create
+
+Rodar servidor
+
+bundle2.7 exec puma -C config/puma.rb -b tcp://127.0.0.1:3001
+
+
+
+install no windows ruby on raills
+
+baixar ruby next next next.
+
+Download RubyGems
+extrair e ir para a pasta e rodar o comando
+
+ruby setup.rb

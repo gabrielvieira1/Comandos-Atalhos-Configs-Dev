@@ -1,0 +1,5 @@
+Ctrl+Shift+seta para cima ou pra baixo - sobe ou desce linha
+Shift+F10 - executa
+Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+Press Ctrl+F8 to toggle the breakpoint
+

@@ -1,0 +1,16 @@
+INSTALAÇÃO CONFIGURAÇÃO E CRIAR USUARIOS NO MYSQL PARA O DJANGO
+
+INTALAR:
+sudo apt-get install mysql-server-8.0
+sudo apt-get install libmysqlclient-dev
+pip install mysqlclient==1.4.6
+
+RECONFIGURAR:
+sudo dpkg-reconfigure mysql-server-8.0
+sudo chown -R mysql:mysql /var/lib/mysql
+
+CRIAR USUARIOS:
+sudo mysql -u root -p
+CREATE USER 'user1'@'localhost' IDENTIFIED BY 'passpass';
+grant all privileges on *.* to 'user1'@'localhost' with grant option;
+SELECT user, host FROM mysql.user;

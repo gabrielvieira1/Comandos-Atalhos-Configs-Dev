@@ -1,0 +1,5 @@
+adiciona grupo a uma pasta
+sudo chgrp users /home/unifbv/
+adiciona permições ao grupo
+sudo chmod g+w unifbv/
+/dev/sda5 /mnt/HD_Arquivos ntfs-3g rw,silent,umask=000,dmask=027,fmask=137,uid=1000,gid=1000nls=iso8859-1 0 0

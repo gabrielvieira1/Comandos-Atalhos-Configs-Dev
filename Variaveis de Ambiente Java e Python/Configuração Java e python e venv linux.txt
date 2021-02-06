@@ -1,0 +1,88 @@
+Instalar Java
+
+Instalar Java: sudo apt install openjdk-8-jdk
+Verificar a instalação: java -version
+Configurar JAVA_HOME:
+	verificar caminho Java: sudo update-alternatives --config java
+	copie o caminho do Java
+	Edite o arquivo .bashrc: sudo gedit ~/.bashrc
+	Copie o código abaixo no final do arquivo. Salve o arquivo.
+	Abra um novo terminal e teste: echo $JAVA_HOME
+	
+JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export JAVA_HOME
+export PATH=$PATH:$JAVA_HOME
+
+
+instlação Python pip e virtualenv:
+
+a) Instalar as dependências
+
+sudo apt install build-essential zlib1g-dev libjpeg-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev sqlite3 liblzma-dev curl libbz2-dev
+
+b) Baixar o fonte do Python
+
+c) Descompactar o Python baixado
+
+d) Com o terminal aberto no diretório do fonte executar:
+
+	./configure --enable-optimizations --with-ensurepip=install
+
+e) Compilar com o comando:
+
+	make -j 8
+
+f) Instalar com o comando:
+
+	sudo make altinstall
+	
+g) Verifique se foi instalado com o comando:
+
+	python3.x --version
+
+	pip3.x --version
+	
+h) upgrade pip
+	
+	sudo pip3.8 install --upgrade pip
+
+	pip install virtualenv virtualenvwrapper
+
+configurar variaveis de ambiente no bashrc:
+
+echo $HOME
+which python3.8 
+
+sudo gedit ~/.bashrc
+ 
+#Virtualenv-virtualenvwrapper-PIP e PYTHON 
+
+alias python=python3.8
+alias pip=pip3.8
+
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3.8
+source /home/gabriel/.local/bin/virtualenvwrapper.sh
+
+Criar virtualenv:
+
+mkvirtualenv nomeDaEnv 
+
+Copiar virtual env:
+
+cpvirtualenv oldenv newenv
+rmvirtualenv oldenv
+workon newenv
+
+acessar virtualenv:
+
+workon virtualenv
+deactivate
+
+instalar dependencias das envs:
+
+$(old-venv) pip freeze > temp-reqs.txt
+$(old-venv) deactivate
+$ mkvirtualenv new-venv
+$(new-venv) pip install -r temp-reqs.txt
+$(new-venv) rmvirtualenv old-venv

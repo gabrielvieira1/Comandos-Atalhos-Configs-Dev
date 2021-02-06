@@ -1,0 +1,2 @@
+passwd --lock root = remove senha do root
+sudo passwd root = reativar o root
